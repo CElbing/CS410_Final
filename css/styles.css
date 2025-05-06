@@ -310,7 +310,7 @@ body {
   border-radius: 0.5em;
   border-width: 0.04em;
   background-color: var(--primary-color-jarcarta);
-  color: var(--primary-color-white);
+  color: white;
 }
 
 #submit-button:active {
@@ -428,7 +428,7 @@ body {
 /**************** MISC ****************/
 .favicon-account-page {
   height: 70px;
-  width: 70px;
+  
   padding-top: 10%;
 }
 

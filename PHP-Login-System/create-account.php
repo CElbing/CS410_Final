@@ -90,7 +90,7 @@ if (isset($_POST['submit'])) {
     <div class = form-container>
         <div class="form-content">
             <form action="" method="post" enctype="multipart/form-data" autocomplete="off">
-            <img class = "favicon-account-page" src="../assets/icons/DoughDaddy.png">
+            <img class = "favicon-account-page" src="../assets/icons/DoughDaddy.png" alt="Dough Daddy Logo">
                 <h2 class = "header-bold">Create an Account</h2>
                 <div>
                     <div class ="form-item">
