@@ -41,7 +41,7 @@
                 <input type="number" id="wants" placeholder="e.g. 100"><br><br>
 
                 <label for="wantsPercentage">Goal Percentage for Wants (%):</label>
-                <input type="number" id="wantsPercentage" placeholder="e.g. 40"><br><br>
+                <input type="number" id="wantsPercentage" placeholder="e.g. 20"><br><br>
 
                 <label for="needs">Spending on Needs:</label>
                 <input type="number" id="needs" placeholder="e.g. 200"><br><br>
@@ -49,57 +49,17 @@
                 <label for="needsPercentage">Goal Percentage for Needs (%):</label>
                 <input type="number" id="needsPercentage" placeholder="e.g. 30"><br><br>
 
-                <label for="other">Spending on Other:</label>
-                <input type="number" id="other" placeholder="e.g. 50"><br><br>
-
-                <label for="otherPercentage">Goal Percentage for Other (%):</label>
-                <input type="number" id="otherPercentage" placeholder="e.g. 20"><br><br>
-
                 <label for="savings">Amount Saved:</label>
                 <input type="number" id="savings" placeholder="e.g. 150"><br><br>
 
                 <label for="savingsPercentage">Goal Percentage for Savings (%):</label>
-                <input type="number" id="savingsPercentage" placeholder="e.g. 10"><br><br>
+                <input type="number" id="savingsPercentage" placeholder="e.g. 50"><br><br>
 
                 <div class="modal-footer">
-                    <button onclick="storeBudget()" type="button" class="btn btn-success" data-bs-dismiss="modal">Submit</button>
+                    <button onclick="storeBudget()" type="button" class="btn btn-success"
+                        data-bs-dismiss="modal">Submit</button>
                 </div>
 
-            </div>
-        </div>
-
-        <!-- The Modal -->
-        <div class="modal" id="modal">
-            <div class="modal-dialog">
-                <div class="modal-content">
-
-                    <label for="wants">Spending on Wants:</label>
-                    <input type="number" id="wants" placeholder="e.g. 100"><br><br>
-
-                    <label for="wantsPercentage">Goal Percentage for Wants (%):</label>
-                    <input type="number" id="wantsPercentage" placeholder="e.g. 40"><br><br>
-
-                    <label for="needs">Spending on Needs:</label>
-                    <input type="number" id="needs" placeholder="e.g. 200"><br><br>
-
-                    <label for="needsPercentage">Goal Percentage for Needs (%):</label>
-                    <input type="number" id="needsPercentage" placeholder="e.g. 30"><br><br>
-
-                    <label for="other">Spending on Other:</label>
-                    <input type="number" id="other" placeholder="e.g. 50"><br><br>
-
-                    <label for="otherPercentage">Goal Percentage for Other (%):</label>
-                    <input type="number" id="otherPercentage" placeholder="e.g. 20"><br><br>
-
-                    <label for="savings">Amount Saved:</label>
-                    <input type="number" id="savings" placeholder="e.g. 150"><br><br>
-
-                    <label for="savingsPercentage">Goal Percentage for Savings (%):</label>
-                    <input type="number" id="savingsPercentage" placeholder="e.g. 10"><br><br>
-
-                    <button onclick="storeBudget()">Submit</button>
-
-                </div>
             </div>
         </div>
     </div>
@@ -117,17 +77,15 @@
             // Retrieve input values
             const wants = parseFloat(document.getElementById("wants").value) || 0;
             const needs = parseFloat(document.getElementById("needs").value) || 0;
-            const other = parseFloat(document.getElementById("other").value) || 0;
             const savings = parseFloat(document.getElementById("savings").value) || 0;
 
             // Retrieve goal percentage values
             const wantsPercentage = parseFloat(document.getElementById("wantsPercentage").value) || 0;
             const needsPercentage = parseFloat(document.getElementById("needsPercentage").value) || 0;
-            const otherPercentage = parseFloat(document.getElementById("otherPercentage").value) || 0;
             const savingsPercentage = parseFloat(document.getElementById("savingsPercentage").value) || 0;
 
             // Calculate total spending and compare with goal percentages
-            const totalSpending = wants + needs + other;
+            const totalSpending = wants + needs;
             const totalSaving = savings;
             // Calculate total budget
             const totalBudget = totalSpending + savings;
@@ -135,13 +93,12 @@
 
             const actualWantsPercentage = (wants / totalBudget) * 100;
             const actualNeedsPercentage = (needs / totalBudget) * 100;
-            const actualOtherPercentage = (other / totalBudget) * 100;
             const actualSavingsPercentage = (savings / totalBudget) * 100;
 
             const ctx = document.getElementById('myChart');
 
             // Check if the sum of goal percentages equals 100
-            const totalGoalPercentage = wantsPercentage + needsPercentage + otherPercentage + savingsPercentage;
+            const totalGoalPercentage = wantsPercentage + needsPercentage + savingsPercentage;
 
             if (totalGoalPercentage !== 100) {
                 console.log("Warning: The sum of goal percentages does not equal 100%");
@@ -169,16 +126,6 @@
             } else {
                 adviceText += "You're on target for your Needs budget.<br>";
             }
-
-            // Advice for Other
-            if (actualOtherPercentage < otherPercentage) {
-                adviceText += "You're spending less on Other than your goal. Consider adjusting your budget if needed.<br>";
-            } else if (actualOtherPercentage > otherPercentage) {
-                adviceText += "You're spending more on Other than your goal. You might want to reduce spending here.<br>";
-            } else {
-                adviceText += "You're on target for your Other budget.<br>";
-            }
-
             // Advice for Savings
             if (actualSavingsPercentage < savingsPercentage) {
                 adviceText += "You're saving less than your goal. Try to allocate more towards savings.<br>";
@@ -194,10 +141,10 @@
             new Chart(ctx, {
                 type: 'pie',
                 data: {
-                    labels: ['Wants', 'Needs', 'Other', 'Total'],
+                    labels: ['Wants', 'Needs', 'Savings'],
                     datasets: [{
                         label: 'Spending',
-                        data: [wants, needs, other, savings],
+                        data: [wants, needs, savings],
                         borderWidth: 1,
                         //backgroundColor: '#800000',
                     }]
