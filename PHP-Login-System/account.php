@@ -26,17 +26,20 @@ if (isset($_GET['logout'])) {
 <body class="justify-content-center text-center container-fluid">
 
     <div class="container-fluid bg-dark pt-3 pb-3">
-    <div class="dropdown">
-        <button type="button" class="btn btn-warning dropdown-toggle shadow-sm" data-bs-toggle="dropdown">
-            Settings
-        </button>
-        <ul class="dropdown-menu bg-warning">
-            <li><a class="dropdown-item" href="#">Delete Account</a></li>
-            <li><a class="dropdown-item" href="#">Delete All Data</a></li>
-            <li><a class="dropdown-item" href="register.html">Reset Password</a></li>
-            <li><a class="dropdown-item" href="index.html">Logout</a></li>
-        </ul>
-    </div>
+        <div class="dropdown">
+            <button type="button" class="btn btn-warning dropdown-toggle shadow-sm" data-bs-toggle="dropdown">
+                Settings
+            </button>
+            <ul class="dropdown-menu bg-warning">
+                <form action="delete_account.php" method="POST" onsubmit="return confirm('Are you sure you want to delete your account?');">
+                    <input type="hidden" name="username" value="<?php echo htmlspecialchars($_SESSION['user']); ?>">
+                    <button class="dropdown-item" type="submit" name="delete_account">
+                        Delete Account
+                    </button>
+                </form>
+                <li><a class="dropdown-item" href="login.php">Logout</a></li>
+            </ul>
+        </div>
     </div>
 
     <div class="container mt-3">
@@ -92,7 +95,7 @@ if (isset($_GET['logout'])) {
         <div class="container-fluid">
             <div class="row justify-content-end">
                 <div class="col-4 col-md-2">
-                <img src="../assets/icons/DoughDaddy.png" class="img-fluid" alt="Dough Daddy Logo">
+                    <img src="../assets/icons/DoughDaddy.png" class="img-fluid" alt="Dough Daddy Logo">
                 </div>
             </div>
         </div>
