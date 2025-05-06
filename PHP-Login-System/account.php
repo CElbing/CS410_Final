@@ -15,31 +15,32 @@ if (isset($_GET['logout'])) {
 <html lang="en">
 
 <head>
-    <title>Bootstrap Example</title>
+    <title>Account</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 
-<body class="justify-content-center text-center">
+<body class="justify-content-center text-center container-fluid">
 
-    <div class="dropdown m-5">
-        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+    <div class="container-fluid bg-dark pt-3 pb-3">
+    <div class="dropdown">
+        <button type="button" class="btn btn-warning dropdown-toggle shadow-sm" data-bs-toggle="dropdown">
             Settings
         </button>
-        <ul class="dropdown-menu">
+        <ul class="dropdown-menu bg-warning">
             <li><a class="dropdown-item" href="#">Delete Account</a></li>
             <li><a class="dropdown-item" href="#">Delete All Data</a></li>
             <li><a class="dropdown-item" href="register.html">Reset Password</a></li>
             <li><a class="dropdown-item" href="index.html">Logout</a></li>
         </ul>
     </div>
+    </div>
 
     <div class="container mt-3">
-        <h3>Modal Example</h3>
-        <p>Click on the button to open the modal.</p>
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+        <button type="button" class="btn btn-success shadow-sm" data-bs-toggle="modal" data-bs-target="#myModal">
             Upload Data
         </button>
     </div>
@@ -47,41 +48,56 @@ if (isset($_GET['logout'])) {
     <!-- The Modal -->
     <div class="modal" id="myModal">
         <div class="modal-dialog">
-            <div class="modal-content">
+            <div class="modal-content bg-success text-light border border-5 border-dark">
 
-                <h2>Enter Your Budget</h2>
-                <label for="wants">Spending on Wants:</label>
-                <input type="number" id="wants" placeholder="e.g. 100"><br><br>
+                <h2 class="mt-3 fw-bold">Enter Your Budget</h2>
+                <label for="wants" class="mt-3 text-warning mb-1">Spending on Wants:</label>
+                <input type="number" id="wants" placeholder="e.g. 100" class="ms-5 me-5 p-2"><br><br>
 
-                <label for="wantsPercentage">Goal Percentage for Wants (%):</label>
-                <input type="number" id="wantsPercentage" placeholder="e.g. 20"><br><br>
+                <label for="wantsPercentage" class="text-warning mb-1">Goal Percentage for Wants (%):</label>
+                <input type="number" id="wantsPercentage" placeholder="e.g. 20" class="ms-5 me-5 p-2"><br><br>
 
-                <label for="needs">Spending on Needs:</label>
-                <input type="number" id="needs" placeholder="e.g. 200"><br><br>
+                <label for="needs" class="text-warning mb-1">Spending on Needs:</label>
+                <input type="number" id="needs" placeholder="e.g. 200" class="ms-5 me-5 p-2"><br><br>
 
-                <label for="needsPercentage">Goal Percentage for Needs (%):</label>
-                <input type="number" id="needsPercentage" placeholder="e.g. 30"><br><br>
+                <label for="needsPercentage" class="text-warning mb-1">Goal Percentage for Needs (%):</label>
+                <input type="number" id="needsPercentage" placeholder="e.g. 30" class="ms-5 me-5 p-2"><br><br>
 
-                <label for="savings">Amount Saved:</label>
-                <input type="number" id="savings" placeholder="e.g. 150"><br><br>
+                <label for="savings" class="text-warning mb-1">Amount Saved:</label>
+                <input type="number" id="savings" placeholder="e.g. 150" class="ms-5 me-5 p-2"><br><br>
 
-                <label for="savingsPercentage">Goal Percentage for Savings (%):</label>
-                <input type="number" id="savingsPercentage" placeholder="e.g. 50"><br><br>
+                <label for="savingsPercentage" class="text-warning mb-1">Goal Percentage for Savings (%):</label>
+                <input type="number" id="savingsPercentage" placeholder="e.g. 50" class="ms-5 me-5 p-2"><br><br>
 
                 <div class="modal-footer">
-                    <button onclick="storeBudget()" type="button" class="btn btn-success"
+                    <button onclick="storeBudget()" type="button" class="btn border border-4 border-warning text-warning"
                         data-bs-dismiss="modal">Submit</button>
                 </div>
 
             </div>
         </div>
     </div>
-    <div>
-        <canvas id="myChart"></canvas>
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-5 col-md-4">
+                <canvas id="myChart"></canvas>
+            </div>
+            <div class="col-5 col-md-4 bg-light rounded-3 ms-3 shadow">
+                <p1 id="advice"></p1>
+            </div>
+        </div>
     </div>
-    <div>
-        <p1 id="advice"></p1>
-    </div>
+
+    <footer class="position-absolute bottom-0 end-0 me-3 mb-3">
+        <div class="container-fluid">
+            <div class="row justify-content-end">
+                <div class="col-4 col-md-2">
+                <img src="../assets/icons/DoughDaddy.png" class="img-fluid" alt="Dough Daddy Logo">
+                </div>
+            </div>
+        </div>
+    </footer>
+
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 

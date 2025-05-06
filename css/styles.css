@@ -1,9 +1,9 @@
 :root {
   /***** Start Color Types *****/
-  --primary-color-space-cadet: #2d2f73;
+  --primary-color-space-cadet: #207958;
   --primary-color-oxley: #81a584;
-  --primary-color-jarcarta: #383979;
-  --primary-color-white: #ffffff;
+  --primary-color-jarcarta: #207958;
+  --primary-color-white: #f4e7cc;
   --primary-color-black: #000000;
 
   --secondary-color-mandarin: #f47a4b;
@@ -24,6 +24,14 @@
 }
 
 /***** Body Content Classes *****/
+
+.account {
+  background-color: var(--primary-color-white);
+}
+
+.green-button {
+  background-color: var(--primary-color-jarcarta);
+}
 
 body {
   margin: 0%;

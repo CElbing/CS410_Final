@@ -27,6 +27,7 @@ if (isset($_POST['submit'])) {
 
 
 <body>
+<!-- 
 <header class="header-flex-container">
         <div class="appointment-social-media-header" id="only-desktop">
             <h1 class="header-regular appointment-social-media-header-content">(507) 474-2221</h1>
@@ -85,11 +86,11 @@ if (isset($_POST['submit'])) {
                 </a>
             </li>
         </ul>
-    </div>
+    </div> -->
     <div class = form-container>
         <div class="form-content">
             <form action="" method="post" enctype="multipart/form-data" autocomplete="off">
-            <img class = "favicon-account-page" src="https://bridgeshealthwinona.org/wp-content/uploads/2024/09/fav.png">
+            <img class = "favicon-account-page" src="../assets/icons/DoughDaddy.png">
                 <h2 class = "header-bold">Create an Account</h2>
                 <div>
                     <div class ="form-item">
@@ -111,6 +112,7 @@ if (isset($_POST['submit'])) {
             </form>
         </div>
     </div>
+    <!--
     <footer class="footer">
         <div class="footer-content">
             <div class = "quick-link-container">
@@ -169,7 +171,7 @@ if (isset($_POST['submit'])) {
                 </ul>
             </div>
         </div>
-    </footer>
+    </footer> -->
 </body>
 
 </html>
